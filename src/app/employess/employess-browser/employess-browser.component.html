@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="con">
+      <img class="lightsaberBlueLeft" [src]="lightsaberBlue">
+      <h1>Employees list</h1>
+      <img class="lightsaberBlueRight" [src]="lightsaberBlue">
+  </div>
+
+  <div class="employe" >
+      <ul *ngFor="let people of allPeoples$ | async, let i = index">
+      <div class="click"(click)="getEmploye(name,i)">
+         <div class="lightsaber">
+              <img class="lightsaberRed" [src]="lightsaberRed">
+            </div>
+            <div class="title" (click)="changeIsActive()"><h2>{{ people.name}}</h2></div>
+         <div class="data">
+            <li *ngIf="people && index2==i && isActive">
+              <div class="list">
+                    <div class="left">
+                      <p>Height: {{ people.height}}</p>
+                      <p>Mass: {{ people.mass }} kg</p>
+                      <p>Birth year: {{people.birth_year}}</p>
+                      <p>Gender: {{ people.gender}}</p>
+                    </div>
+              <div class="right">
+                    <p>Hair: {{ people.hair_color}}</p>
+                    <p>Skin: {{ people.skin_color}}</p>
+                    <p>Eye: {{ people.eye_color}}</p>
+              </div>
+            </div>
+          </li>
+        </div>
+      </div>
+    </ul>
+  </div>
+</div>
